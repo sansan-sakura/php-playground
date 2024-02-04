@@ -20,6 +20,11 @@ array_pop($users);
  $id2=array_slice($ids,2,3);
  var_dump($id2);
 //  echo $ids;
+$users2=[
+    "name"=>"Jogn",
+    "email"=>"John@gamil.com",
+    "password"=>"12345"
+]
 
 ?>
 
