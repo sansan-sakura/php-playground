@@ -33,6 +33,13 @@ array_reverse($colors);
 array_push($colors,"apple");
 array_push($colors,"orange");
 
+$colors=array_merge($colors,["apples","banana"]);
+
+array_splice($colors,1,1,"pink");
+
+
+print_r($colors);
+echo "<h3>{$colors[2]}</h3>";
 /*
   Challenge 3: Job listings array
 
@@ -43,4 +50,36 @@ array_push($colors,"orange");
 */
 
 echo '<h3>Job Listings</h3>';
+
+$listings=[
+    [
+        "id"=>1,
+        "name"=>"san",
+        "company"=>"neee"
+    ],
+    [
+        "id"=>2,
+        "name"=>"han",
+        "company"=>"neeeds"
+    ],
+    [
+        "id"=>3,
+        "name"=>"gan",
+        "company"=>"neeedw"
+    ],
+    [
+        "id"=>4,
+        "name"=>"jn",
+        "company"=>"nie"
+    ],
+];
+
+array_push($listings, [
+    "id"=>5,
+    "name"=>"san",
+    "company"=>"neee"
+]);
+
+print_r($listings);
+
 
