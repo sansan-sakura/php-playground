@@ -38,7 +38,7 @@ $listings = [
     'description' => 'We are looking for a friendly customer service representative to assist customers and resolve issues.',
     'salary' => 40000,
     'location' => 'New York',
-    'tags' => ['Customer Support', 'Communication', 'Problem Solving']
+    'tags' => []
   ],
 ];
 ?>
@@ -61,29 +61,33 @@ $listings = [
     </div>
   </header>
   <div class="container mx-auto p-4 mt-4">
-    <!-- Output -->
-    <?php foreach($listings as $list):?>
-        <div class="md my-4">
-      <div class="bg-white rounded-lg shadow-md">
-        <div class="p-4">
-          <h2 class="text-xl font-semibold"><?=$list["title"]?></h2>
-          <p class="text-gray-700 text-lg mt-2"><?=$list["description"]?></p>
-          <ul class="mt-4">
-            <li class="mb-2">
-              <strong>Salary:</strong> <?=$list["salary"]?>
-            </li>
-            <li class="mb-2">
-              <strong>Location:</strong> <?=$list["location"]?>
-            </li>
-            <li class="mb-2">
-              <strong>Tags:</strong> <?= implode(", ",$list["tags"])?>
-            </li>
-          </ul>
+    <?php foreach ($listings as $index => $job) : ?>
+      <div class="md my-4">
+        <div class="rounded-lg shadow-md 
+            <?= $index % 2 === 0? " bg-blue-100": "bg-white"?>   
+">
+          <div class="p-4">
+            <h2 class="text-xl font-semibold"><?= $job['title'] ?></h2>
+            <p class="text-gray-700 text-lg mt-2"><?= $job['description'] ?></p>
+            <ul class="mt-4">
+              <li class="mb-2">
+                <strong>Salary:</strong> <?= $job['salary'] ?>
+              </li>
+              <li class="mb-2">
+                <strong>Location:</strong> <?= $job['location'] ?>
+            
+                <?= ($job['location'] === 'New York')?' <span class="text-xs text-white bg-blue-500 rounded-full px-2 py-1 ml-2">Local</span>':' <span class="text-xs text-white bg-green-500 rounded-full px-2 py-1 ml-2">Remote</span>' ?>
+              </li>
+              
+              <?= (!empty($job['tags']))?  '<li class="mb-2">
+                  <strong>Tags:</strong>'. implode(', ', $job['tags']).'
+                </li>' :"" ?>
+           
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-        <?php endforeach;?>
-
+    <?php endforeach; ?>
   </div>
 </body>
 
