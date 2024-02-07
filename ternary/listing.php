@@ -41,6 +41,38 @@ $listings = [
     'tags' => []
   ],
 ];
+
+function formatSalary($salary)
+{
+  return "$".number_format($salary);
+}
+
+function calcAverage($salaries)
+{
+    $total=0;
+    foreach ($salaries as $salary){
+        $total+=$salary;
+    }
+
+    return $total/count($salaries);
+}
+
+
+function createSalaryArr($listing){
+
+    $array=[];
+    foreach($listing as $list){
+        array_push($array,$list['salary']);
+    }
+
+    return $array;
+}
+
+$salaryArr=createSalaryArr($listings);
+var_dump($salaryArr);
+$salaryAverage=calcAverage($salaryArr);
+
+
 ?>
 
 
@@ -58,6 +90,7 @@ $listings = [
   <header class="bg-blue-500 text-white p-4">
     <div class="container mx-auto">
       <h1 class="text-3xl font-semibold">Job Listings</h1>
+      <p><?=$salaryAverage?></p>
     </div>
   </header>
   <div class="container mx-auto p-4 mt-4">
@@ -71,14 +104,14 @@ $listings = [
             <p class="text-gray-700 text-lg mt-2"><?= $job['description'] ?></p>
             <ul class="mt-4">
               <li class="mb-2">
-                <strong>Salary:</strong> <?= $job['salary'] ?>
+                <strong>Salary:</strong> <?= formatSalary($job['salary'])?>
               </li>
               <li class="mb-2">
                 <strong>Location:</strong> <?= $job['location'] ?>
             
                 <?= ($job['location'] === 'New York')?' <span class="text-xs text-white bg-blue-500 rounded-full px-2 py-1 ml-2">Local</span>':' <span class="text-xs text-white bg-green-500 rounded-full px-2 py-1 ml-2">Remote</span>' ?>
               </li>
-              
+
               <?= (!empty($job['tags']))?  '<li class="mb-2">
                   <strong>Tags:</strong>'. implode(', ', $job['tags']).'
                 </li>' :"" ?>

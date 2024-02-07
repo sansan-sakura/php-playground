@@ -15,3 +15,28 @@
 $favoriteColor="pink";
 $color =isset($favoriteColor)?$favoriteColor:"red";
 $color =$favoriteColor??"red";
+
+function calc($temp){
+    $c=($temp-32)*5/9;
+return $c;
+};
+
+$f=40;
+$base=32;
+$calc2=function ($f) use($base){
+return ($f-$base)*5/9;
+};
+
+function findLongestWord($sentence){
+
+$words=explode(" ",$sentence);
+
+$longest="";
+
+foreach($words as $word){
+
+    $word=trim($word);
+
+    if(strleng($word)>strlen($lon))
+}
+}
