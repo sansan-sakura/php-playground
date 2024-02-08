@@ -1,3 +1,18 @@
+<?php
+$title="";
+$description="";
+$submitted=false;
+if($_SERVER['REQUEST_METHOD']==="POST"&&isset($_POST['submit']))
+{
+    $title=htmlspecialchars($_POST['title'])??"";
+    $descriotion=htmlspecialchars($_POST['description'])??"";
+    $submitted=true;
+
+
+}
+{var_dump($_POST);}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +45,20 @@
       </form>
 
       <!-- Display submitted data -->
+
+      <?php if ($submitted) :?>
+      <div class="mt-6 p-4 border rounded bg-gray-200">
+        <h2 class="text-lg font-semibold">Submitted JOB Listing:</h2>
+        <p>
+            <strong>Title:</strong>
+            <?=$title?>
+        </p>
+        <p>
+            <strong>Description</strong>
+            <?=$descriotion?>
+        </p>
+      </div>
+      <?php endif;?>
     </div>
   </div>
 </body>
