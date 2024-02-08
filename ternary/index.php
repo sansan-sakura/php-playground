@@ -37,6 +37,12 @@ foreach($words as $word){
 
     $word=trim($word);
 
-    if(strleng($word)>strlen($lon))
+    if(strlen($word)>strlen($longest)||$longest===""){
+       $longest=$word;
+    }
 }
+
+return $longest;
 }
+
+echo findLongestWord("This project bridges the gap between design and development, showcasing the art of bringing visuals to life");

@@ -25,7 +25,7 @@ $lastName="Tana";
         </div>
     </header>
     <div class="container mx-auto p-4 mt-4">
-        <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="bg-white rounded-lg s   hadow-md p-6">
             <h2 class="text-2xl font-semibold mb-4"><?=$heading?></h2>
             <?php echo "<p>In this course, you will learn the fundamentals of the PHP language {$firstName}</p>"?>
         </div>
